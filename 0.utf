@@ -1,0 +1,279 @@
+;$V-1G200S800,600L10000
+
+;no gameid because of savedir replace it.
+
+; ————————————————————————————————————————————————————————————————————————————————————————————
+;Custom Engine
+;V-1 = Infiny variable limit
+;G200 = Global variable start at 200
+;S800,600 = 800x600 screen size
+;L10000 = 10 000 label maximum for the game
+; ————————————————————————————————————————————————————————————————————————————————————————————
+
+
+; ————————————————————————————————————————————————————————————————————————————————————————————
+; Copyleft - Utilisation Libre
+;
+;   Template Game Define File for Galladite27's ONScripter-EN Ver.20230628 or upper
+;
+; titre : Template Game - Definition file
+; file : 0.utf
+; written : T.Hiliol
+;
+; Written the 26th March 2025
+;
+; ————————————————————————————————————————————————————————————————————————————————————————————
+
+
+; ——————————————————————————————————————————————————————————————————————
+;
+;
+; Defition Bloc
+;
+;
+; ——————————————————————————————————————————————————————————————————————
+
+*define
+
+;window title
+caption "Demo Game"
+
+;nsa reader
+nsa
+
+;right click
+rmenu ` ~~Skip~~`, skip, ` ~~Save~~`, save, ` ~~Load~~`, load, ` ~~Title Screen~~`, reset
+
+;reading speed
+defaultspeed 50,25,0
+
+;name the savefolder
+savedir "savedata"
+
+;number of save (create a custom menu if you want more)
+savenumber 20
+
+;enable global variable (start at 200)
+globalon
+
+;enable filereading save file
+filelog
+
+;enable labelreading save file
+labellog
+
+; ——————————————————————————————————————————————————————————————————————
+; Custom fonction (read 1.utf)
+; ——————————————————————————————————————————————————————————————————————  
+
+defsub skipscene
+defsub resetyesskip
+defsub movesceneskip
+
+; ——————————————————————————————————————————————————————————————————————
+; Globale variable
+; ——————————————————————————————————————————————————————————————————————
+
+;define a sceneskip for player choice
+numalias sceneskip,200
+
+;create a variable for read the skipscene result
+numalias yesskip,201
+
+;result for button click
+numalias buttonresult,210
+
+;create alias for effect
+numalias Instantaneous_display,1 ;not really usefull
+numalias Left_sided_shutter,2
+numalias Right_sided_shutter,3
+numalias Upwards_shutter,4
+numalias Downwards_shutter,5
+numalias Left_moving_curtain,6
+numalias Right_moving_curtain,7
+numalias Upwards_curtain,8
+numalias Downwards_curtain,9
+numalias Pixelwise_crossfade,10
+numalias Left_moving_scroll,11
+numalias Right_moving_scroll,12
+numalias Upwards_scroll,13
+numalias Downwards_scroll,14
+numalias Fade_via_mask,15
+numalias Mosaic_out,16
+numalias Mosaic_in,17
+numalias Crossfade_via_mask,18
+
+;effect speed
+numalias effectspeed,800
+
+; ——————————————————————————————————————————————————————————————————————
+; Effect
+; ——————————————————————————————————————————————————————————————————————
+
+;Give the right effect to the right name and give the variable duration
+effect Left_sided_shutter,2,effectspeed
+effect Right_sided_shutter,3,effectspeed
+effect Upwards_shutter,4,effectspeed
+effect Downwards_shutter,5,effectspeed
+effect Left_moving_curtain,6,effectspeed
+effect Right_moving_curtain,7,effectspeed
+effect Upwards_curtain,8,effectspeed
+effect Downwards_curtain,9,effectspeed
+effect Pixelwise_crossfade,10,effectspeed
+effect Left_moving_scroll,11,effectspeed
+effect Right_moving_scroll,12,effectspeed
+effect Upwards_scroll,13,effectspeed
+effect Downwards_scroll,14,effectspeed
+effect Mosaic_out,16,effectspeed
+effect Mosaic_in,17,effectspeed 
+
+; ——————————————————————————————————————————————————————————————————————
+; Assets defition (not an obligation)
+; ——————————————————————————————————————————————————————————————————————
+
+;Title menu
+stralias title,"menu/main_menu.png"
+stralias titlebutton,"menu/titlebutton.png"
+
+;Option menu
+stralias option,"menu/option.png"
+stralias enablebutton,"menu/enable_button_option.png"
+stralias optionbutton,"menu/optionbutton.png"
+
+;backgroud
+stralias KSMbackground01,"bgimage/01.jpg"
+stralias KSMbackground02,"bgimage/02.jpg"
+stralias KSMbackground03,"bgimage/03.jpg"
+stralias KSMbackground04,"bgimage/04.jpg"
+stralias KSMbackground05,"bgimage/05.jpg"
+stralias KSMbackground06,"bgimage/06.jpg"
+stralias KSMbackground07,"bgimage/07.jpg"
+stralias KSMbackground08,"bgimage/08.jpg"
+stralias KSMbackground09,"bgimage/09.jpg"
+stralias KSMbackground10,"bgimage/10.jpg"
+stralias KSMbackground11,"bgimage/11.jpg"
+stralias KSMbackground12,"bgimage/12.jpg"
+stralias KSMbackground13,"bgimage/13.jpg"
+stralias KSMbackground14,"bgimage/14.jpg"
+stralias KSMbackground15,"bgimage/15.jpg"
+stralias KSMbackground16,"bgimage/16.jpg"
+stralias KSMbackground17,"bgimage/17.jpg"
+stralias KSMbackground18,"bgimage/18.jpg"
+stralias KSMbackground19,"bgimage/19.jpg"
+stralias KSMbackground20,"bgimage/20.jpg"
+stralias KSMbackground21,"bgimage/21.jpg"
+stralias KSMbackground22,"bgimage/22.jpg"
+stralias KSMbackground23,"bgimage/23.jpg"
+stralias KSMbackground24,"bgimage/24.jpg"
+stralias KSMbackground25,"bgimage/25.jpg"
+stralias KSMbackground26,"bgimage/26.jpg"
+stralias KSMbackground27,"bgimage/27.jpg"
+stralias KSMbackground28,"bgimage/28.jpg"
+stralias KSMbackground29,"bgimage/29.jpg"
+stralias KSMbackground30,"bgimage/30.jpg"
+stralias KSMbackground31,"bgimage/31.jpg"
+stralias KSMbackground32,"bgimage/32.jpg"
+stralias KSMbackground33,"bgimage/33.jpg"
+stralias KSMbackground34,"bgimage/34.jpg"
+stralias KSMbackground35,"bgimage/35.jpg"
+stralias KSMbackground36,"bgimage/36.jpg"
+stralias KSMbackground37,"bgimage/37.jpg"
+stralias KSMbackground38,"bgimage/38.jpg"
+stralias KSMbackground39,"bgimage/39.jpg"
+stralias KSMbackground40,"bgimage/40.jpg"
+stralias KSMbackground41,"bgimage/41.jpg"
+stralias KSMbackground42,"bgimage/42.jpg"
+stralias KSMbackground43,"bgimage/43.jpg"
+stralias KSMbackground44,"bgimage/44.jpg"
+stralias KSMbackground45,"bgimage/45.jpg"
+stralias KSMbackground46,"bgimage/46.jpg"
+stralias KSMbackground47,"bgimage/47.jpg"
+stralias KSMbackground48,"bgimage/48.jpg"
+stralias KSMbackground49,"bgimage/49.jpg"
+stralias KSMbackground50,"bgimage/50.jpg"
+stralias KSMbackground51,"bgimage/51.jpg"
+stralias KSMbackground52,"bgimage/52.jpg"
+stralias KSMbackground53,"bgimage/53.jpg"
+stralias KSMbackground54,"bgimage/54.jpg"
+stralias KSMbackground55,"bgimage/55.jpg"
+stralias KSMbackground56,"bgimage/56.jpg"
+stralias KSMbackground57,"bgimage/57.jpg"
+stralias KSMbackground58,"bgimage/58.jpg"
+stralias KSMbackground59,"bgimage/59.jpg"
+stralias KSMbackground60,"bgimage/60.jpg"
+stralias KSMbackground61,"bgimage/61.jpg"
+stralias KSMbackground62,"bgimage/62.jpg"
+stralias KSMbackground63,"bgimage/63.jpg"
+stralias KSMbackground64,"bgimage/64.jpg"
+
+;sprite
+stralias Ro_idle,"fgimage/image.png"
+
+;background music
+stralias Calm_Workshop,"bgm/gara238.mp3"
+
+;voice
+stralias aha,"voice/aha.wav"
+stralias cry,"voice/cry.wav"
+stralias eh,"voice/eh.wav"
+stralias hello,"voice/hello.wav"
+stralias hmm,"voice/hmm.wav"
+stralias lets,"voice/lets.wav"
+stralias message,"voice/message.wav"
+stralias no,"voice/no.wav"
+stralias sigh,"voice/sigh.wav"
+stralias thank,"voice/thank.wav"
+stralias ufufu,"voice/ufufu.wav"
+stralias what,"voice/what.wav"
+stralias yawn,"voice/yawn.wav"
+stralias yes,"voice/yes.wav"
+
+; ——————————————————————————————————————————————————————————————————————
+; End of defition bloc
+; ——————————————————————————————————————————————————————————————————————
+game
+
+
+; ——————————————————————————————————————————————————————————————————————
+;
+;
+; Game Start
+;
+;
+; ——————————————————————————————————————————————————————————————————————
+
+*start
+
+;setup the window text
+setwindow4 5, 20, 795, 15, 28, 28, 2, 12, 20, 0, 1, #999999, 0, 0, 800, 600, 1
+
+; ————————————————————————————————————————————————————————————————————————————————————————————
+;  setwindow4 -- Better UTF-8 support
+;5 = X-coordinate of top left for text
+;20 = Y-coordinate of top left for text
+;795 = Text display area width (pixels)
+;15 = Number of text lines
+;28 = (Full-width) text font size X
+;28 = Text font size Y
+;2 = Text spacing X
+;12 = Text spacing Y
+;20 = Default text speed
+;0 = Boldface toggle (0=off/1=on)
+;1 = Drop shadow toggle (0=off/1=on)
+;#999999 = Window color (Grey)
+;0 = Window top left X-coordinate
+;0 = Window top left Y-coordinate
+;800 = Window bottom right X-coordinate
+;600 = Window bottom right Y-coordinate
+;————————————————————————————————————————————————————————————————————————————————————————————
+
+;clean the game
+csp -1
+stop
+btndef""
+
+;go to the Title screen
+goto *Title
+
+end
+ 

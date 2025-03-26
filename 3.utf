@@ -1,0 +1,104 @@
+
+; ————————————————————————————————————————————————————————————————————————————————————————————
+; Copyleft - Utilisation Libre
+;
+;   Template Game Define File for Galladite27's ONScripter-EN Ver.20230628 or upper
+;
+; titre : Template Game - Story file
+; file : 3.utf
+; written : T.Hiliol
+;
+; Written the 26th March 2025
+;
+; ————————————————————————————————————————————————————————————————————————————————————————————
+
+
+*Scene1F
+
+;enable textwindow
+texton
+
+;enable r-click
+rmode 1
+
+;setup the window text
+setwindow4 5, 20, 795, 15, 28, 28, 2, 12, 20, 0, 1, #999999, 0, 0, 800, 600, 1
+
+print 1
+
+;reset result of Skipscene
+resetyesskip
+;Skipscene menu if Scene1 is already read
+if %sceneskip==1 && lchk *Scene1 skipscene
+;Verification of player choice and read or not the scene
+if %yesskip==1 skip 2
+gosub *Scene1
+;Choice between scene 2 or 3 for exemple
+select `Enter in the forest`,*Scene2F,`Back look at the moon`,*Scene3F
+
+*Scene2F
+;reset result of Skipscene
+resetyesskip
+;Skipscene menu if Scene1 is already read
+if %sceneskip==1 && lchk *Scene2 skipscene
+;Verification of player choice and read or not the scene
+if %yesskip==1 skip 2
+gosub *Scene2
+;End
+reset
+
+*Scene3F
+;reset result of Skipscene
+resetyesskip
+;Skipscene menu if Scene1 is already read
+if %sceneskip==1 && lchk *Scene3 skipscene
+;Verification of player choice and read or not the scene
+if %yesskip==1 skip 2
+gosub *Scene3
+;End
+reset
+
+*Scene1
+;print a background
+bg KSMbackground41
+` I'm on the curtain of the forest.@
+` What I do ?\
+return
+
+*Scene2
+bg KSMbackground41,%Pixelwise_crossfade
+` I'm going in the forest.\
+bg KSMbackground35,%Upwards_curtain
+` I arrive at the center of the forest.@
+` I want to go deeper until I found something interesting.\
+bg KSMbackground62,%Downwards_shutter
+` I found a shrump.@
+` It was beautiful.@ I'm full of joy.\
+br
+br
+br
+` That was a great day, isn't it ?\
+return
+
+*Scene3
+bg KSMbackground41,%Pixelwise_crossfade
+` I don't want to risk my life on a shady forest.@
+` I'm going to search a place to look a the moon.\
+bg KSMbackground04,%Left_sided_shutter
+` I found a great place.@
+` I just need to focus on the sky and found the moon.\
+bg KSMbackground03,%Downwards_scroll
+` Wow !@ It's so———beautiful.\
+` While I look at the Moon, I see a silouhette coming to me.\
+ld c,Ro_idle,%Mosaic_in
+dwave yawn : `"yaaaawn…"@
+` Seem like she's just sleep off.@
+` Who she is ?\
+cl a
+bg black
+br
+br
+br
+` And that how my crazy story begin !\
+return
+ 

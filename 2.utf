@@ -1,0 +1,98 @@
+
+; ————————————————————————————————————————————————————————————————————————————————————————————
+; Copyleft - Utilisation Libre
+;
+;   Template Game Define File for Galladite27's ONScripter-EN Ver.20230628 or upper
+;
+; titre : Template Game - Menu file
+; file : 2.utf
+; written : T.Hiliol
+;
+; Written the 26th March 2025
+;
+; ————————————————————————————————————————————————————————————————————————————————————————————
+
+; ——————————————————————————————————————————————————————————————————————
+; Title Screen
+; ——————————————————————————————————————————————————————————————————————
+*Title
+
+;hide the text menu
+textoff
+
+;disable the r-click
+rmode 0
+
+;show the titlescreen background
+bg title
+
+;play the background music
+;waveloop hope
+
+;define the image button and the emplacement of each
+btndef titlebutton
+btn 1,300,250,200,75,0,0 ;Start button
+btn 2,300,500,200,75,0,75 ;Exit (Quitter) button
+btn 3,300,350,200,75,0,150 ;Option button
+
+;print 1 to avoid issue
+print 1
+
+;define the variable who receive the button press
+btnwait %buttonresult
+
+;wait for a button to be press
+if %buttonresult=0 skip -2
+
+;if button 1 is press, launch the scenario
+if %buttonresult=1 goto *Scene1F
+;if button 2 is press, quit the game
+if %buttonresult=2 end
+;if button 3 is press, go to the option menu
+if %buttonresult=3 goto *Option
+
+;create a loop to not quit the menu
+goto *Title
+
+
+; ——————————————————————————————————————————————————————————————————————
+; Option Screen
+; ——————————————————————————————————————————————————————————————————————
+*Option
+
+;show enable up to disable to hide it
+if %sceneskip=1 lsp 30,enablebutton,350,430
+
+;show the option background
+bg option
+
+;disable the r-click
+rmode 0
+
+btndef optionbutton
+btn 1,50,300,678,62,0,0
+btn 2,35,535,123,29,0,62
+
+;print 1 to avoid issue
+print 1
+
+;define the variable who receive the button press
+btnwait %buttonresult
+
+;wait for a button to be press
+if %buttonresult=0 skip -2
+;if right click is press, reset the game
+if %buttonresult=-1 reset
+
+;clean the screen
+csp -1
+
+;if "skip sceen already seen be click" enable sceneskip
+if %buttonresult=1 movesceneskip
+
+;if returnbutton is press, reset the game
+if %buttonresult=2 reset
+
+;create a loop to not quit the menu
+goto *Option
+ 

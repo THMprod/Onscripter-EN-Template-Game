@@ -1,0 +1,35 @@
+
+; ————————————————————————————————————————————————————————————————————————————————————————————
+; Copyleft - Utilisation Libre
+;
+;   Template Game Define File for Galladite27's ONScripter-EN Ver.20230628 or upper
+;
+; titre : Template Game - Custom Program file
+; file : 1.utf
+; written : T.Hiliol
+;
+; Written the 26th March 2025
+;
+; ————————————————————————————————————————————————————————————————————————————————————————————
+
+
+;create a menu for skip scene on scenario program
+*skipscene
+;print a black screen
+bg black
+`You've already read this scene.`
+`    do you want to pass it ?`
+br
+selnum %yesskip,`Don't skip it`,`Skip it`
+return
+
+;reset skipscene result to avoid problem
+*resetyesskip
+mov %yesskip,0
+return
+
+;move the sceneskip variable
+*movesceneskip
+if %sceneskip=0 mov %sceneskip,1 : skip 2
+if %sceneskip=1 mov %sceneskip,0
+return
