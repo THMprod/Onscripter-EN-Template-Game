@@ -12,8 +12,8 @@ Release : 2006
 
 Found on "Assets/music/" in Novelty Folder
 
-In doubt I found a site with all ["KEN THE GARAGE" sound](https://sonichits.com/artist/KEN_THE_GARAGE)
+In doubt, I found a site with all ["KEN THE GARAGE" sound](https://sonichits.com/artist/KEN_THE_GARAGE)
 
 ## Modification
 
-I convert it to .wav
+Changed to .ogg

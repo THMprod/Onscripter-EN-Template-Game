@@ -9,6 +9,7 @@
 ; written : T.Hiliol
 ;
 ; Written the 26th March 2025
+;  01st April 2025 - Some corrections of freeze - Correction of the option menu
 ;
 ; ————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -31,5 +32,5 @@ return
 ;move the sceneskip variable
 *movesceneskip
 if %sceneskip=0 mov %sceneskip,1 : skip 2
-if %sceneskip=1 mov %sceneskip,0
+mov %sceneskip,0
 return

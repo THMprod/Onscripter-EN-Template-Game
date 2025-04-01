@@ -9,6 +9,7 @@
 ; written : T.Hiliol
 ;
 ; Written the 26th March 2025
+;  01st April 2025 - Some corrections of freeze - Correction of the option menu
 ;
 ; ————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -34,7 +35,7 @@ if %sceneskip==1 && lchk *Scene1 skipscene
 if %yesskip==1 skip 2
 gosub *Scene1
 ;Choice between scene 2 or 3 for exemple
-select `Enter in the forest`,*Scene2F,`Back look at the moon`,*Scene3F
+select `Enter in the forest`,*Scene2F,`Back to look the moon`,*Scene3F
 
 *Scene2F
 ;reset result of Skipscene
@@ -45,7 +46,7 @@ if %sceneskip==1 && lchk *Scene2 skipscene
 if %yesskip==1 skip 2
 gosub *Scene2
 ;End
-reset
+goto *start
 
 *Scene3F
 ;reset result of Skipscene
@@ -56,7 +57,7 @@ if %sceneskip==1 && lchk *Scene3 skipscene
 if %yesskip==1 skip 2
 gosub *Scene3
 ;End
-reset
+goto *start
 
 *Scene1
 ;print a background
@@ -83,13 +84,13 @@ return
 *Scene3
 bg KSMbackground41,%Pixelwise_crossfade
 ` I don't want to risk my life on a shady forest.@
-` I'm going to search a place to look a the moon.\
+` I'm going to search a place to look at the moon.\
 bg KSMbackground04,%Left_sided_shutter
 ` I found a great place.@
 ` I just need to focus on the sky and found the moon.\
 bg KSMbackground03,%Downwards_scroll
 ` Wow !@ It's so———beautiful.\
-` While I look at the Moon, I see a silouhette coming to me.\
+` While I look at the moon, I see a silouhette coming to me.\
 ld c,Ro_idle,%Mosaic_in
 dwave yawn : `"yaaaawn…"@
 ` Seem like she's just sleep off.@
@@ -101,4 +102,3 @@ br
 br
 ` And that how my crazy story begin !\
 return
- 

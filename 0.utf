@@ -21,6 +21,7 @@
 ; written : T.Hiliol
 ;
 ; Written the 26th March 2025
+;  01st April 2025 - Some corrections of freeze - Correction of the option menu
 ;
 ; ————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -137,7 +138,7 @@ stralias titlebutton,"menu/titlebutton.png"
 
 ;Option menu
 stralias option,"menu/option.png"
-stralias enablebutton,"menu/enable_button_option.png"
+stralias disablebutton,"menu/disable_button_option.png"
 stralias optionbutton,"menu/optionbutton.png"
 
 ;backgroud
@@ -210,7 +211,7 @@ stralias KSMbackground64,"bgimage/64.jpg"
 stralias Ro_idle,"fgimage/image.png"
 
 ;background music
-stralias Calm_Workshop,"bgm/gara238.mp3"
+stralias Calm_Workshop,"bgm/gara238.ogg"
 
 ;voice
 stralias aha,"voice/aha.wav"
@@ -268,9 +269,10 @@ setwindow4 5, 20, 795, 15, 28, 28, 2, 12, 20, 0, 1, #999999, 0, 0, 800, 600, 1
 ;————————————————————————————————————————————————————————————————————————————————————————————
 
 ;clean the game
-csp -1
-stop
-btndef""
+csp -1 ;delete all sprite
+stop ;stop all sound
+btndef"" ;free-up memory of all button
+cl a,1 ;clear all standing image
 
 ;go to the Title screen
 goto *Title

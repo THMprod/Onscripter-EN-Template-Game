@@ -9,6 +9,7 @@
 ; written : T.Hiliol
 ;
 ; Written the 26th March 2025
+;  01st April 2025 - Some corrections of freeze - Correction of the option menu
 ;
 ; ————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -27,7 +28,7 @@ rmode 0
 bg title
 
 ;play the background music
-;waveloop hope
+bgm Calm_Workshop
 
 ;define the image button and the emplacement of each
 btndef titlebutton
@@ -41,8 +42,7 @@ print 1
 ;define the variable who receive the button press
 btnwait %buttonresult
 
-;wait for a button to be press
-if %buttonresult=0 skip -2
+if %buttonresult=0 skip -2 ;wait for a button to be press
 
 ;if button 1 is press, launch the scenario
 if %buttonresult=1 goto *Scene1F
@@ -60,18 +60,19 @@ goto *Title
 ; ——————————————————————————————————————————————————————————————————————
 *Option
 
-;show enable up to disable to hide it
-if %sceneskip=1 lsp 30,enablebutton,350,430
+;hide the text menu
+textoff
 
 ;show the option background
 bg option
 
-;disable the r-click
-rmode 0
+;show enable up to disable to hide it
+if %sceneskip=0 lsp 30,disablebutton,356,450
 
+;define the image button and the emplacement of each
 btndef optionbutton
-btn 1,50,300,678,62,0,0
-btn 2,35,535,123,29,0,62
+btn 1,53,320,678,62,0,0 ;sceneskipswitch
+btn 2,38,549,123,29,0,62 ;returnbutton
 
 ;print 1 to avoid issue
 print 1
@@ -79,10 +80,10 @@ print 1
 ;define the variable who receive the button press
 btnwait %buttonresult
 
-;wait for a button to be press
-if %buttonresult=0 skip -2
-;if right click is press, reset the game
-if %buttonresult=-1 reset
+
+if %buttonresult=0 skip -2 ;wait for a button to be press
+
+if %buttonresult=-1 goto *start ;if right click is press, reset the game
 
 ;clean the screen
 csp -1
