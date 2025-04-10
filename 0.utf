@@ -84,7 +84,7 @@ numalias yesskip,201
 ;result for button click
 numalias buttonresult,210
 
-;create alias for effect
+;create alias for effect (local variables)
 numalias Instantaneous_display,1 ;not really usefull
 numalias Left_sided_shutter,2
 numalias Right_sided_shutter,3

@@ -36,6 +36,17 @@ btn 1,300,250,200,75,0,0 ;Start button
 btn 2,300,500,200,75,0,75 ;Exit (Quitter) button
 btn 3,300,350,200,75,0,150 ;Option button
 
+; ————————————————————————————————————————————————————————————————————————————————————————————
+;  btn (for btn 1 - same for the others)
+;1 = the number (result) of the button
+;300 = Top-left X-coordinate
+;250 = Top-left Y-coordinate
+;200 = Button width
+;75 = Button height
+;0 = X-shift (Top-left X-coordinate of the btndef)
+;0 = Y-shift (Top-left Y-coordinate of the btndef)
+;————————————————————————————————————————————————————————————————————————————————————————————
+
 ;print 1 to avoid issue
 print 1
 
